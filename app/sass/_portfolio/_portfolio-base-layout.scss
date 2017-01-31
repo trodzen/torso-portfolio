@@ -1,0 +1,151 @@
+/**
+ *
+ * portfolio-base-layout.scss
+ *
+ * Author: Beiyi Wu, beiyi.wu@vecna.com
+ *
+ * This file defines the layout of a page. It is mobile first, and use media queries to define
+ * the layouts for medium-screen and large-screen devices.
+ *
+ */
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 16px;
+  position: relative;
+  margin: 0;
+}
+
+.app {
+  color: $portfolio-default-color;
+  position: relative;
+}
+
+.app--splash {
+  color: $portfolio-splash-screen-color;
+  background: $portfolio-splash-screen-background;
+  overflow: auto;
+  height: 100vh;
+}
+
+.portfolio-page-header {
+  color: $portfolio-page-header-color;
+  background: $portfolio-page-header-background;
+  position: relative;
+}
+
+.portfolio-page-header--splash {
+  background: none;
+  margin: 15% 0 50px 0;
+  text-align: center;
+}
+
+@media screen and (max-height: $small-screen-landscape-height)  {
+  .portfolio-page-header--splash {
+    margin: 5% 0;
+  }
+}
+
+.portfolio-page-header__author {
+  @include flexbox;
+  @include align-items($value: center);
+  border-bottom: 10px solid $portfolio-default-background;
+  padding: 10px;
+}
+
+.portfolio-page-header__author-photo {
+  width: 40px;
+  line-height: 0;
+
+  & img {
+    width: 100%;
+    @include prefixer(border-radius, 50%, ("webkit", "moz"));
+  }
+}
+
+.portfolio-page-header__author-photo--splash {
+  width: 60%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+@media screen and (max-height: $small-screen-landscape-height)  {
+  .portfolio-page-header__author-photo--splash {
+    width: 20%;
+  }
+}
+
+.portfolio-page-header__author-name {
+  margin-left: 1em;
+
+  & h1 {
+    font-size: 1.25em;
+    margin: 0;
+  }
+}
+
+.portfolio-page-header__author-name--splash {
+  margin: 25px 0;
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-height: $small-screen-landscape-height)  {
+  .portfolio-page-header__author-name--splash {
+    margin: 12.5px 0;
+    font-size: 1.25em;
+  }
+}
+
+.portfolio-page-header__icon {
+  position: absolute;
+  top: 47px;
+  right: 25px;
+  z-index: 30;
+
+  &:before {
+    content: url('assets/img/hexagon.png');
+  }
+
+  & span {
+    color: $portfolio-icon-color;
+    font-size: 1.25em;
+    position: absolute;
+    top: 12px;
+    left: 15px;
+  }
+}
+
+.portfolio-page-footer {
+  background: $portfolio-page-footer-background;
+  color: $portfolio-page-footer-color;
+  font-size: 0.8em;
+  width: 100%;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+}
+
+.portfolio-page-footer--splash {
+  position: absolute;
+  bottom: 0;
+  background: none;
+  color: $portfolio-splash-screen-color;
+  text-align: center;
+}
+
+@media screen and (max-height: $small-screen-landscape-height)  {
+  .portfolio-page-footer--splash {
+    position: relative;
+  }
+}
+
+.portfolio-page-content {
+  color: $portfolio-page-content-color;
+  background: $portfolio-page-content-background;
+  padding: 0 25px 50px 25px;
+  position: relative;
+}
